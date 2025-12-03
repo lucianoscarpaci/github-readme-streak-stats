@@ -9,12 +9,10 @@ require_once "card.php";
 
 // Environment variables are loaded by the Vercel platform
 
-// if environment variables are not loaded, display error
+// The TOKEN environment variable is required.
+// It is configured in the Vercel project settings.
 if (!isset($_SERVER["TOKEN"])) {
-    $message = file_exists(dirname(__DIR__ . "../.env", 1))
-        ? "Missing token in config. Check Contributing.md for details."
-        : ".env was not found. Check Contributing.md for details.";
-    renderOutput($message, 500);
+    renderOutput("Missing token environment variable.", 500);
 }
 
 // set cache to refresh once per three horus
