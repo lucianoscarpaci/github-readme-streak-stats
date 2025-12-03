@@ -29,6 +29,10 @@ if (!isset($_REQUEST["user"]) && strpos($_SERVER['REQUEST_URI'], '/demo/') === f
 
 try {
     // get streak stats for user given in query string
+    if (!isset($_REQUEST["user"])) {
+        renderOutput("User parameter is missing.", 400);
+        exit();
+    }
     $user = preg_replace("/[^a-zA-Z0-9\-]/", "", $_REQUEST["user"]);
     $startingYear = isset($_REQUEST["starting_year"]) ? intval($_REQUEST["starting_year"]) : null;
     $contributionGraphs = getContributionGraphs($user, $startingYear);
