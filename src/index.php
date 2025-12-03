@@ -11,7 +11,7 @@ require_once "card.php";
 
 // The TOKEN environment variable is required.
 // It is configured in the Vercel project settings.
-if (!isset($_SERVER["TOKEN"])) {
+if (getenv('TOKEN') === false) {
     renderOutput("Missing token environment variable.", 500);
 }
 

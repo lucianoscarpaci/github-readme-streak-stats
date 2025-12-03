@@ -169,7 +169,7 @@ function getGitHubTokens(): array
         return $GLOBALS["ALL_TOKENS"];
     }
     // find all tokens in environment variables
-    $tokens = isset($_SERVER["TOKEN"]) ? [$_SERVER["TOKEN"]] : [];
+    $tokens = getenv('TOKEN') ? [getenv('TOKEN')] : [];
     $index = 2;
     while (isset($_SERVER["TOKEN{$index}"])) {
         // add token to list
