@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "composer.json",
+      "use": "vercel-php@0.7.4"
+    },
+    {
+      "src": "src/**/*.php",
+      "use": "vercel-php@0.7.4"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.php"
+    }
+  ]
+}
