@@ -7,9 +7,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 require_once "stats.php";
 require_once "card.php";
 
-// load .env
-$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
-$dotenv->safeLoad();
+// Environment variables are loaded by the Vercel platform
 
 // if environment variables are not loaded, display error
 if (!isset($_SERVER["TOKEN"])) {
