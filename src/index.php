@@ -21,8 +21,8 @@ header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheMinutes) . " GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: public, max-age=$cacheMinutes");
 
-// redirect to demo site if user is not given
-if (!isset($_REQUEST["user"])) {
+// redirect to demo site if user is not given and not already in demo path
+if (!isset($_REQUEST["user"]) && strpos($_SERVER['REQUEST_URI'], '/demo/') === false) {
     header("Location: demo/");
     exit();
 }
